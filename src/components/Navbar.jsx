@@ -32,7 +32,7 @@ const Navbar = (props) => {
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 50 });
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const navItems = ['Home', 'Academics', 'Admissions', 'Pages', 'Blog'];
+  const navItems = ['Home', 'Academics', 'Admissions', 'Locations', 'Blog'];
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
