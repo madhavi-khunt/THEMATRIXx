@@ -7,6 +7,10 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import WestIcon from '@mui/icons-material/West';
 import EastIcon from '@mui/icons-material/East';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+
+
 // Swiper Imports
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
@@ -33,6 +37,23 @@ const moduleData = [
   { title: "Business Media", category: "Business & Administration", img: program2 },
   { title: "Public Speaking", category: "Sciences", img: program3 },
   { title: "Digital Marketing", category: "Business", img: program1 },
+];
+
+const blogPosts = [
+  {
+    category: "Software",
+    title: "Unlocking the power of strategies effective.",
+    author: "admin",
+    date: "August 11, 2024",
+    img: program1
+  },
+  {
+    category: "Education",
+    title: "The role of technology in modern classrooms enhancing.",
+    author: "admin",
+    date: "August 11, 2024",
+    img: program2
+  }
 ];
 
 const Home = () => {
@@ -623,6 +644,119 @@ const Home = () => {
       </Box>
     </Box>
     {/* --- SECTION Testimonial --- */}
+
+{/* --- BLOG UPDATES SECTION START --- */}
+<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', py: 10, bgcolor: '#fcfbf7' }}>
+  <Box sx={{ width: '100%', maxWidth: '1200px', px: { xs: 2, md: 0 } }}>
+    
+    {/* --- SECTION TITLE --- */}
+    <Box sx={{ textAlign: 'center', mb: 8 }}>
+      <Typography variant="subtitle2" sx={{ color: '#5bb1e2', fontWeight: 700, mb: 1 }}>
+        BLOG UPDATES
+      </Typography>
+      <Box sx={{ display: 'inline-block', position: 'relative' }}>
+        <Typography variant="h2" sx={{ fontWeight: 800, fontSize: { xs: '2.2rem', md: '3.5rem' }, color: '#031040' }}>
+          Latest News & <span style={{ color: '#5bb1e2' }}>Articles.</span>
+        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: -1, mr: 2 }}>
+          <svg width="120" height="10" viewBox="0 0 180 13" fill="none">
+            <path d="M173.163 12.3756C97.1838 -3.8242 30.6496 5.67799 7.32494 12.2553C5.30414 12.8252 2.43544 12.6722 0.917529 11.9135C-0.600387 11.11549 -0.192718 10.0779 1.82808 9.50807C27.5427 2.25675 98.002 -7.60121 177.683 9.38783C179.881 9.85641 180.65 10.9051 179.402 11.7301C178.154 12.5552 175.361 12.8442 173.163 12.3756Z" fill="#5bb1e2" />
+          </svg>
+        </Box>
+      </Box>
+    </Box>
+
+    {/* --- BLOG CARDS CONTAINER (CUSTOM FLEXBOX) --- */}
+    <Box 
+      sx={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        justifyContent: 'center', 
+        gap: '30px' // Cards ke beech ka gap
+      }}
+    >
+      {blogPosts.map((post, index) => (
+        <Box 
+          key={index}
+          sx={{ 
+            position: 'relative', 
+            pb: 4,
+            width: { xs: '100%', md: 'calc(50% - 15px)' }, // Do cards side-by-side (gap adjust karke)
+            maxWidth: { xs: '500px', md: 'none' } 
+          }}
+        >
+          <Box 
+            sx={{ 
+              bgcolor: 'white', 
+              borderRadius: '25px', 
+              boxShadow: '0 10px 40px rgba(0,0,0,0.03)',
+              transition: '0.4s ease',
+              height: '100%',
+              '&:hover': { transform: 'translateY(-5px)', boxShadow: '0 20px 50px rgba(0,0,0,0.08)' }
+            }}
+          >
+            {/* Image Wrapper */}
+            <Box sx={{ p: 2 }}>
+              <Box 
+                component="img" 
+                src={post.img} 
+                sx={{ 
+                  width: '100%', 
+                  height: '300px', 
+                  objectFit: 'cover', 
+                  borderRadius: '35px' 
+                }} 
+              />
+            </Box>
+
+            {/* Content Area */}
+            <Box sx={{ p: 4, pt: 1, textAlign: 'center' }}>
+              <Typography variant="subtitle2" sx={{ color: '#5bb1e2', fontWeight: 700, mb: 1.5 }}>
+                {post.category}
+              </Typography>
+              
+              <Typography variant="h5" sx={{ fontWeight: 800, color: '#031040', mb: 3, lineHeight: 1.4 }}>
+                {post.title}
+              </Typography>
+
+              <Stack direction="row" spacing={3} justifyContent="center" sx={{ color: '#888' }}>
+                <Stack direction="row" spacing={0.5} alignItems="center">
+                  <PersonOutlineIcon sx={{ fontSize: 18 }} />
+                  <Typography variant="body2">{post.author}</Typography>
+                </Stack>
+                <Stack direction="row" spacing={0.5} alignItems="center">
+                  <CalendarMonthIcon sx={{ fontSize: 18 }} />
+                  <Typography variant="body2">{post.date}</Typography>
+                </Stack>
+              </Stack>
+            </Box>
+          </Box>
+
+          {/* Floating Circle Arrow Button */}
+          <IconButton 
+            sx={{ 
+              position: 'absolute', 
+              bottom: 0, 
+              left: '50%', 
+              transform: 'translateX(-50%)',
+              bgcolor: 'white', 
+              color: '#031040',
+              boxShadow: '0 8px 20px rgba(0,0,0,0.1)',
+              width: '60px',
+              height: '60px',
+              '&:hover': { bgcolor: '#031040', color: 'white' }
+            }}
+          >
+            <EastIcon />
+          </IconButton>
+        </Box>
+      ))}
+    </Box>
+
+  </Box>
+</Box>
+{/* --- BLOG UPDATES SECTION END --- */}
+
 
       <Box sx={{ height: '100vh', backgroundColor: '#f5f5f5' }} /> {/* Footer Placeholder */}
       
