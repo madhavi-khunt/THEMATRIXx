@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Button, Container, Stack  } from '@mui/material';
+import { Box, Typography, Button, Container, Stack, Avatar, IconButton  } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import SchoolIcon from '@mui/icons-material/School';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import WestIcon from '@mui/icons-material/West';
+import EastIcon from '@mui/icons-material/East';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 // Swiper Imports
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+
+
+import bgImage from '../assets/images/bg1.jpg'; // Aapki building wali image
 
 
 import bg1 from '../assets/images/bg1.jpg';
@@ -447,6 +454,175 @@ const Home = () => {
       `}</style>
     </Box>
 {/* --- SECTION TITLE END --- */}
+
+{/* --- SECTION Upcoming Events --- */}
+<Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', py: 8 }}>
+      <Box sx={{ width: '100%', maxWidth: '1200px', px: { xs: 2, md: 0 } }}>
+        
+        {/* --- TOP HEADER: Title & Button --- */}
+        <Box 
+          sx={{ 
+            display: 'flex', 
+            flexDirection: { xs: 'column', md: 'row' }, 
+            justifyContent: 'space-between', 
+            alignItems: { xs: 'flex-start', md: 'flex-end' },
+            gap: 3,
+            mb: 4
+          }}
+        >
+          {/* Left: Title Area */}
+          <Box sx={{ position: 'relative' }}>
+            <Typography 
+              variant="h2" 
+              sx={{ 
+                fontWeight: 800, 
+                fontSize: { xs: '2rem', md: '3.5rem' }, 
+                color: '#031040', 
+                lineHeight: 1.1,
+                fontFamily: "'Playfair Display', serif" 
+              }}
+            >
+              Recent & <br />
+              Upcoming <span style={{ color: '#5bb1e2' }}>Events</span>
+            </Typography>
+
+            {/* SVG Curve - Exactly under "Events" */}
+            <Box sx={{ display: 'flex', ml: { xs: 0, md: 25 }, mt: 0.5 }}>
+               <svg width="150" height="12" viewBox="0 0 180 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M173.163 12.3756C97.1838 -3.8242 30.6496 5.67799 7.32494 12.2553C5.30414 12.8252 2.43544 12.6722 0.917529 11.9135C-0.600387 11.11549 -0.192718 10.0779 1.82808 9.50807C27.5427 2.25675 98.002 -7.60121 177.683 9.38783C179.881 9.85641 180.65 10.9051 179.402 11.7301C178.154 12.5552 175.361 12.8442 173.163 12.3756Z" fill="#5bb1e2" />
+               </svg>
+            </Box>
+          </Box>
+
+          {/* Right: Button */}
+          <Button 
+            variant="contained" 
+            endIcon={<ArrowForwardIcon />}
+            sx={{ 
+              bgcolor: '#031040', 
+              color: 'white', 
+              px: 4, 
+              py: 1.8, 
+              borderRadius: '8px',
+              fontWeight: 700,
+              textTransform: 'none',
+              fontSize: '1rem',
+              '&:hover': { bgcolor: '#5bb1e2' }
+            }}
+          >
+            See More Events
+          </Button>
+        </Box>
+
+        {/* --- BOTTOM: No Event Found Bar --- */}
+        <Box 
+          sx={{ 
+            width: '100%', 
+            bgcolor: '#fdf2f2', // Light reddish background from image
+            p: 2.5, 
+            borderRadius: '4px',
+            borderLeft: '4px solid #5bb1e2', // Theme accent color
+            display: 'flex',
+            alignItems: 'center'
+          }}
+        >
+          <Typography 
+            variant="body1" 
+            sx={{ color: '#555', fontWeight: 500, fontSize: '1rem' }}
+          >
+            No Event Found
+          </Typography>
+        </Box>
+
+      </Box>
+    </Box>
+{/* --- SECTION Upcoming Events --- */}
+
+{/* --- SECTION Testimonial --- */}
+    <Box 
+      sx={{ 
+        width: '100%', 
+        height: { xs: 'auto', md: '800px' },
+        position: 'relative',
+        backgroundImage: `linear-gradient(rgba(3, 16, 64, 0.5), rgba(3, 16, 64, 0.5)), url(${bgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        display: 'flex',
+        alignItems: 'center',
+        py: { xs: 8, md: 0 }
+      }}
+    >
+      <Box sx={{ width: '100%', maxWidth: '1200px', mx: 'auto', px: { xs: 2, md: 0 }, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 4 }}>
+        
+        {/* --- LEFT SIDE: Video Play Button --- */}
+        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', color: 'white' }}>
+          <Box 
+            sx={{ 
+              width: '80px', height: '80px', bgcolor: 'white', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', mb: 2,
+              boxShadow: '0 0 0 10px rgba(255,255,255,0.2)',
+              '&:hover': { transform: 'scale(1.1)', transition: '0.3s' }
+            }}
+          >
+            <PlayArrowIcon sx={{ color: '#b21e35', fontSize: 40 }} />
+          </Box>
+          <Typography variant="h5" sx={{ fontWeight: 700 }}>Video Tour in logo</Typography>
+        </Box>
+
+        {/* --- RIGHT SIDE: Floating Testimonial Card --- */}
+        <Box sx={{ flex: 1, width: '100%', maxWidth: '550px' }}>
+          <Box sx={{ bgcolor: 'white', p: { xs: 4, md: 6 }, borderRadius: '15px', position: 'relative', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}>
+            
+            {/* Large Quote Icon in Background */}
+            <FormatQuoteIcon sx={{ position: 'absolute', top: 20, right: 30, fontSize: 100, color: 'rgba(0,0,0,0.05)', transform: 'rotate(180deg)' }} />
+
+            <Typography variant="subtitle2" sx={{ color: '#b21e35', fontWeight: 700, textTransform: 'uppercase', mb: 1, letterSpacing: 1 }}>
+              Testimonial
+            </Typography>
+            <Typography variant="h4" sx={{ fontWeight: 800, color: '#031040', mb: 4 }}>
+              What Students Says
+            </Typography>
+
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{ delay: 5000 }}
+              navigation={{ prevEl: '.prev-btn', nextEl: '.next-btn' }}
+            >
+              {[1, 2, 3].map((item) => (
+                <SwiperSlide key={item}>
+                  <Box sx={{ mb: 4 }}>
+                    <Avatar 
+                      src="https://i.pravatar.cc/150?img=32" 
+                      sx={{ width: 70, height: 70, border: '4px solid #f8f7f2', mb: 3 }} 
+                    />
+                    <Typography variant="body1" sx={{ color: '#555', fontStyle: 'italic', lineHeight: 1.8, mb: 3 }}>
+                      "Solicitudin venenatis risus dolor in dictumst faucibus egestas. Justo at nibh odio lectus malesuada. Enim cras vitae libero nibh tincidunt justo scelerisque."
+                    </Typography>
+                    <Typography variant="h6" sx={{ fontWeight: 800, color: '#031040' }}>William Smith</Typography>
+                    <Typography variant="body2" sx={{ color: '#b21e35', fontWeight: 600 }}>Alumnus</Typography>
+                  </Box>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Custom Navigation Buttons */}
+            <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+              <IconButton className="prev-btn" sx={{ border: '1px solid #ddd', '&:hover': { bgcolor: '#031040', color: 'white' } }}>
+                <WestIcon fontSize="small" />
+              </IconButton>
+              <IconButton className="next-btn" sx={{ border: '1px solid #ddd', '&:hover': { bgcolor: '#031040', color: 'white' } }}>
+                <EastIcon fontSize="small" />
+              </IconButton>
+            </Stack>
+
+          </Box>
+        </Box>
+
+      </Box>
+    </Box>
+    {/* --- SECTION Testimonial --- */}
 
       <Box sx={{ height: '100vh', backgroundColor: '#f5f5f5' }} /> {/* Footer Placeholder */}
       
