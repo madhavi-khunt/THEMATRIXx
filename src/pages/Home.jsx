@@ -448,7 +448,7 @@ const Home = () => {
     </Box>
 {/* --- SECTION TITLE END --- */}
 
-      <Box sx={{ height: '100vh', backgroundColor: '#f5f5f5' }} /> {/* Footer Placeholder */}
+     
       
     </Box>
   );
