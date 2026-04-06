@@ -38,29 +38,24 @@ const Home = () => {
     return () => clearInterval(timer);
   }, []);
 
- return (
+  return (
     <Box sx={{ overflow: 'hidden' }}>
       <Box sx={{ 
-        height: '90vh', 
+        height: { xs: '80vh', md: '90vh' }, // Shorter on mobile
         position: 'relative', 
         display: 'flex', 
         alignItems: 'center',
       }}>
         
-        {/* Background Images Slider (Absolutely Positioned) */}
+        {/* Background Images Slider */}
         {sliderImages.map((img, index) => (
           <Box
             key={index}
             sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              zIndex: -2, // Pura piche
+              position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -2,
               opacity: activeStep === index ? 1 : 0,
               transition: 'opacity 1.5s ease-in-out',
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("${img}")`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("${img}")`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
@@ -68,15 +63,37 @@ const Home = () => {
         ))}
 
         {/* Content Area */}
-        <Container maxWidth="lg" sx={{ pt: '80px' }}> {/* Space for fixed navbar */}
-          <Box sx={{ maxWidth: '800px', color: 'white', zIndex: 1 }}>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1, letterSpacing: 2 }}>
+        <Container maxWidth="lg">
+          <Box sx={{ 
+            maxWidth: '800px', 
+            color: 'white', 
+            zIndex: 1,
+            textAlign: { xs: 'center', md: 'left' } // Center text on mobile
+          }}>
+            <Typography variant="subtitle1" 
+              sx={{ 
+                fontWeight: 600, mb: 1, letterSpacing: 2,
+                fontSize: { xs: '0.8rem', md: '1rem' } 
+              }}>
               BE APART OF OUR HISTORY
             </Typography>
-            <Typography variant="h1" sx={{ fontWeight: 800, fontSize: { xs: '3rem', md: '5.5rem' }, lineHeight: 1.1, mb: 4 }}>
+            
+            <Typography variant="h1" 
+              sx={{ 
+                fontWeight: 800, 
+                fontSize: { xs: '2.2rem', sm: '3.5rem', md: '5.5rem' }, 
+                lineHeight: 1.2, mb: 4 
+              }}>
               Education to <br /> Create the Future.
             </Typography>
-            <Button variant="contained" sx={{ bgcolor: '#5bb1e2', px: 5, py: 2 }}>
+            
+            <Button variant="contained" 
+              sx={{ 
+                bgcolor: '#5bb1e2', 
+                px: { xs: 3, md: 5 }, 
+                py: { xs: 1.5, md: 2 },
+                fontSize: { xs: '0.9rem', md: '1rem' }
+              }}>
               Enroll Now &rarr;
             </Button>
           </Box>
