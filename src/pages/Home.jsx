@@ -18,7 +18,10 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 
-import bgImage from '../assets/images/bg1.jpg'; // Aapki building wali image
+import bgImage from '../assets/images/bg1.jpg'; 
+
+import logo from '../assets/images/logo1.png';
+
 
 
 import bg1 from '../assets/images/bg1.jpg';
@@ -28,6 +31,14 @@ import about from '../assets/images/about-thumb-1.jpg';
 import program1 from '../assets/images/program1.jpg';
 import program2 from '../assets/images/program2.jpg';
 import program3 from '../assets/images/program3.jpg';
+
+const galleryImages = [
+  "https://taeducation.in/wp-content/uploads/2024/07/instagram-thumb-1.jpg",
+  "https://taeducation.in/wp-content/uploads/2024/07/instagram-thumb-2.jpg",
+  "https://taeducation.in/wp-content/uploads/2024/07/instagram-thumb-3.jpg",
+  "https://taeducation.in/wp-content/uploads/2024/07/instagram-thumb-4.jpg",
+  "https://taeducation.in/wp-content/uploads/2024/07/instagram-thumb-5.jpg",
+];
 
 const sliderImages = [bg1, bg2, bg3];
 
@@ -756,6 +767,137 @@ const Home = () => {
   </Box>
 </Box>
 {/* --- BLOG UPDATES SECTION END --- */}
+
+<Box sx={{ width: '100%', pt: 10 }}>
+      
+      {/* --- 1. TOP IMAGE GALLERY (Horizontal Scroll on Mobile) --- */}
+      <Box 
+        sx={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: '15px', 
+          px: 2,
+          mb: 2, // CTA banner ke sath thoda overlap ya touch karne ke liye
+          flexWrap: { xs: 'nowrap', md: 'wrap' },
+          overflowX: { xs: 'auto', md: 'hidden' },
+          '&::-webkit-scrollbar': { display: 'none' } // Scrollbar hide karne ke liye
+        }}
+      >
+        {galleryImages.map((img, index) => (
+          <Box 
+            key={index}
+            sx={{ 
+              minWidth: { xs: '200px', md: 'calc(20% - 15px)' },
+              height: '250px',
+              borderRadius: '15px',
+              overflow: 'hidden',
+              boxShadow: '0 5px 15px rgba(0,0,0,0.08)'
+            }}
+          >
+            <Box 
+              component="img" 
+              src={img} 
+              sx={{ width: '100%', height: '100%', objectFit: 'cover', transition: '0.3s', '&:hover': { transform: 'scale(1.1)' } }} 
+            />
+          </Box>
+        ))}
+      </Box>
+
+      {/* --- 2. BOTTOM CTA BANNER --- */}
+     <Box 
+  sx={{ 
+    width: '100%', 
+    bgcolor: '#031040', // Dark Blue Theme
+    py: { xs: 5, md: 8 },
+    display: 'flex',
+    justifyContent: 'center',
+    position: 'relative',
+    zIndex: 2,
+    backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(91, 177, 226, 0.1) 0%, transparent 40%)'
+  }}
+>
+  <Box 
+    sx={{ 
+      width: '100%', 
+      maxWidth: '1200px', 
+      px: { xs: 2, md: 0 },
+      display: 'flex',
+      flexDirection: { xs: 'column', md: 'row' },
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      textAlign: { xs: 'center', md: 'left' },
+      gap: 4
+    }}
+  >
+    {/* Logo & Text Area */}
+    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 3 }}>
+      
+      {/* --- LOGO CONTAINER WITH WHITE BACKGROUND --- */}
+      <Box 
+        sx={{ 
+          width: '250px', // Thoda bada kiya padding adjust karne ke liye
+          height: '100px', 
+          bgcolor: 'white', // Naya White Background
+          borderRadius: '12px', // Slightly more rounded
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          p: 1.5, // Inner padding taaki logo border se na chipke
+          boxShadow: '0 5px 15px rgba(0,0,0,0.2)' // Subtle shadow for pop
+        }}
+      >
+        <img src={logo} alt="Logo" style={{ height: '250%' }} />
+      </Box>
+
+      <Box>
+        <Typography 
+          variant="subtitle1" 
+          sx={{ 
+            color: 'white', 
+            fontStyle: 'italic', 
+            fontSize: '1rem', 
+            opacity: 0.9,
+            fontFamily: 'serif' 
+          }}
+        >
+          COURSES FOR FREE, REGISTER NOW
+        </Typography>
+        <Typography 
+          variant="h3" 
+          sx={{ 
+            color: 'white', 
+            fontWeight: 800, 
+            fontSize: { xs: '1.8rem', md: '2.5rem' },
+            mt: 0.5,
+            letterSpacing: 0.5
+          }}
+        >
+          CREATIVE IN RESEARCH AND <span style={{ color: '#5bb1e2' }}>TEACHING.</span>
+        </Typography>
+      </Box>
+    </Box>
+
+    {/* Action Button */}
+    <Button 
+      variant="contained" 
+      sx={{ 
+        bgcolor: 'white', 
+        color: '#031040', 
+        px: 5, 
+        py: 2, 
+        fontSize: '1rem',
+        fontWeight: 700,
+        borderRadius: '8px',
+        textTransform: 'none',
+        whiteSpace: 'nowrap',
+        '&:hover': { bgcolor: '#5bb1e2', color: 'white' }
+      }}
+    >
+      Apply Now &rarr;
+    </Button>
+  </Box>
+</Box>
+    </Box>
 
 
       <Box sx={{ height: '100vh', backgroundColor: '#f5f5f5' }} /> {/* Footer Placeholder */}
